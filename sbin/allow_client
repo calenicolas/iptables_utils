@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-. /usr/local/lib/iptables-utils/allow_client.sh
+. /usr/local/lib/iptables_utils/allow_client.sh
 
 echo "Protocol:"
 read -r PROTOCOL
