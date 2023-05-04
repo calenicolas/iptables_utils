@@ -17,8 +17,8 @@ allow_forward_to_server() {
     -s "$SOURCE_IP" \
     --dport "$PORT" \
     -d "$TARGET_IP" \
-    -m STATE \
-    --STATE NEW,ESTABLISHED \
+    -m state \
+    --state NEW,ESTABLISHED \
     -j ACCEPT
   iptables \
     -I FORWARD \
@@ -28,8 +28,8 @@ allow_forward_to_server() {
     -d "$SOURCE_IP" \
     --sport "$PORT" \
     -s "$TARGET_IP" \
-    -m STATE \
-    --STATE ESTABLISHED -j ACCEPT
+    -m state \
+    --state ESTABLISHED -j ACCEPT
 
   iptables -t nat -A PREROUTING -p tcp --dport "$INPUT_PORT" -i "$INPUT_INTERFACE" -j DNAT --to "$TARGET_IP":"$INPUT_PORT"
 }
