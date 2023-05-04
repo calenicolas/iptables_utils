@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-allow_forward_to_server() {
+allow_server() {
   local PROTOCOL=$1
   local INTERFACE=$2
   local PORT=$3
