@@ -31,6 +31,6 @@ allow_forward_to_server() {
     -m state \
     --state ESTABLISHED -j ACCEPT
 
-  iptables -t nat -A PREROUTING -p tcp --dport "$INPUT_PORT" -i "$INPUT_INTERFACE" -j DNAT --to "$TARGET_IP":"$INPUT_PORT"
+  iptables -t nat -A PREROUTING -i "$INPUT_INTERFACE" -p "$PROTOCOL" --dport "$INPUT_PORT" -j DNAT --to "$TARGET_IP":"$PORT"
 }
 
