@@ -4,8 +4,8 @@ allow_internal_forward_to_server() {
   local PROTOCOL=$1
   local INPUT_INTERFACE=$2
   local OUTPUT_INTERFACE=$3
-  local PORT=$4
-  local TARGET_IP=$5
+  local TARGET_IP=$4
+  local PORT=$5
 
   iptables \
     -I FORWARD \
